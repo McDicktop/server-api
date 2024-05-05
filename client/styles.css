@@ -5,6 +5,24 @@ body {
     color: rgb(170, 170, 160);
 }
 
+#addUserForm {
+    width: 250px;
+    background-color: #393737;
+    border-radius:2px;
+    position: absolute;
+    top: 120px;
+    left: 180px;
+    padding: 10px;
+}
+
+#addUserForm input {
+    width: 220px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 2px;
+    margin-bottom: 5px;
+}
+
 #addBtn {
     margin-top: 20px;
     margin-left: 290px;
