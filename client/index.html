@@ -1,58 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./styles.css">
-        <title>Table</title>
-    </head>
-    <body>
-        <button id="addBtn">Add</button>
-        <div id="tableWrapper">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Surname</th>
-                        <th scope="col">E-Mail</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
 
-                </tbody>
-            </table>
-        </div>      
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css">
+  <title>Table</title>
+</head>
 
-          <form action="" method="post" id="addUserForm">
-            <h4>Add user</h4>
-          
-            <div id="from">
-              <!-- <label for="POST-name">Name:</label> -->
-              <input type="text" id="POST-name" placeholder="Name"/>
-            </div>
-          
-            <div id="reply">
-              <!-- <label for="POST-surname">Surname:</label> -->
-              <input type="text" id="POST-surname" placeholder="Surname"/>
-            </div>
-          
-            <div id="message">
-              <!-- <label for="POST-email">E-Mail:</label> -->
-              <input type="email" id="POST-email" placeholder="E-Mail"/>
-            </div>
-          
-            <div class="button">
-              <button type="submit">Save</button>
-              <button type="submit">Cancel</button>
-            </div>
-          </form>
+<body>
 
+  <div class="wrapper">
+    <table class="table">
+      <th data-name="name">Name
+        <div class="sortBtn decSort"></div>
+        <div class="sortBtn ascSort"></div>
+      </th>
+      <th data-name="surname">Surname
+        <div class="sortBtn decSort"></div>
+        <div class="sortBtn ascSort"></div>
+      </th>
+      <th data-name="email">E-Mail
+        <div class="sortBtn decSort"></div>
+        <div class="sortBtn ascSort"></div>
+      </th>
+      <th data-name="date">Date
+        <div class="sortBtn decSort"></div>
+        <div class="sortBtn ascSort"></div>
+      </th>
+      <th>Actions</th>
+      <tbody id="tbody">
+      </tbody>
+    </table>
 
+    <div class="formAndControl">
+      <div style="position: fixed;">
+        <div class="buttonWrapper">
+          <button class="button" id="addBtn">Add</button>
+        </div>
+        <div class="buttonWrapper">
+          <!-- <button class="button" id="findBtn">Find</button> -->
+          <input type="text" id="searchInput" placeholder="Start type to search">
+        </div>
+      </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="./script.js"></script>
-    </body>
+      <form action="" method="post" class="form" id="addUserForm">
+        <div class="formName">Add user</div>
+        <input type="text" id="POST-name" placeholder="Name" minlength="1" maxlength="32" pattern="[a-zA-Z0-9]+" required />
+        <input type="text" id="POST-surname" placeholder="Surname" minlength="1" maxlength="32" pattern="[a-zA-Z -`'0-9]+" required />
+        <input type="email" id="POST-email" placeholder="E-Mail" minlength="8" maxlength="32" pattern=".+@.+\..+" required />
+        <button type="submit" class="button" id="addUserSave">Save</button>
+        <button type="button" class="button" id="addUserCancel">Cancel</button>
+      </form>
+
+      <form action="" method="put" class="form" id="editUserForm">
+        <div class="formName">Edit user</div>
+        <input type="text" id="PUT-name" placeholder="Name" minlength="1" maxlength="32" pattern="[a-zA-Z]+" required />
+        <input type="text" id="PUT-surname" placeholder="Surname" minlength="1" maxlength="32" pattern="[a-zA-Z -`']+" required />
+        <input type="email" id="PUT-email" placeholder="E-Mail" minlength="8" maxlength="32" pattern=".+@.+\..+" required />
+        <button type="submit" class="button" id="editUserSave">Save</button>
+        <button type="button" class="button" id="editUserCancel">Cancel</button>
+      </form>
+
+      <form action="" method="delete" class="form" id="deleteUserForm">
+        <div class="formName" style="color: green">Delete user?</div>
+        <input readonly id="DELETE-name" />
+        <input readonly id="DELETE-surname" />
+        <input readonly id="DELETE-email" />
+        <button type="submit" class="button" id="deleteUserSave">Delete</button>
+        <button type="button" class="button" id="deleteUserCancel">Cancel</button>
+      </form>
+
+      <!-- </div> -->
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js"></script>
+
+  <script src="./script.js"></script>
+</body>
+
 </html>
-
-

@@ -9,13 +9,13 @@ const userScheme = new Schema({
         type: String,
         required: true,
         minlength: 2,
-        maxlength: 32,
+        maxlength: 32
     }, 
     surname: {
         type: String,
         required: true,
         minlength: 2,
-        maxlength: 32,
+        maxlength: 32
     },
     email: {
         type: String,
@@ -23,6 +23,10 @@ const userScheme = new Schema({
         minlength: 8,
         validate: [isEmail, 'Please enter a valid email address']
     },
+    date: {
+        type: Date,
+        default: Date.now       // Для mongoDb - 
+    }
 })
 
 const User = mongoose.model('User', userScheme)
